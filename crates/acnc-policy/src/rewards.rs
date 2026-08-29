@@ -32,7 +32,10 @@ impl RewardEngine {
         let multiplier_bps = status.evidence_multiplier_bps();
         let calculated = (base_reward * multiplier_bps) / 10_000;
 
-        let available = self.daily_account_cap_micro.saturating_sub(current_daily_total).max(0);
+        let available = self
+            .daily_account_cap_micro
+            .saturating_sub(current_daily_total)
+            .max(0);
         Ok(calculated.min(available))
     }
 }

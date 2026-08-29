@@ -32,6 +32,9 @@ impl BaselineWindow {
         if observed_grams_co2e < 0 {
             return Err(CarbonError::InvalidInput);
         }
-        Ok(self.baseline_grams_co2e.saturating_sub(observed_grams_co2e).max(0))
+        Ok(self
+            .baseline_grams_co2e
+            .saturating_sub(observed_grams_co2e)
+            .max(0))
     }
 }

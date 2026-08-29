@@ -57,7 +57,8 @@ impl FactorRegistry {
         self.register(EmissionFactor {
             factor_id: "gasoline_passenger_car_mile".to_string(),
             geography: "US".to_string(),
-            source_uri: "https://www.epa.gov/climateleadership/ghg-emission-factors-hub".to_string(),
+            source_uri: "https://www.epa.gov/climateleadership/ghg-emission-factors-hub"
+                .to_string(),
             version: "2026.1".to_string(),
             grams_co2e_per_unit: 404,
             valid_from: 1704067200,

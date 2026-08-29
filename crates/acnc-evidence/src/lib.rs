@@ -19,7 +19,7 @@ mod tests {
     fn test_canonical_json_and_sha256() {
         let record = ActivityRecord {
             record_id: "rec_test_123".to_string(),
-            subject_id_hash: [0u8; 32],
+            participant_id_hash: [0u8; 32],
             category: "electricity".to_string(),
             quantity: 320,
             unit: "kWh".to_string(),

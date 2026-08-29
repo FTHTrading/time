@@ -3,7 +3,7 @@
 use acnc_carbon_core::types::EvidenceStatus;
 
 pub fn is_reward_eligible(status: EvidenceStatus) -> bool {
-    status != EvidenceStatus::Unverified
+    status != EvidenceStatus::LocalRecord
 }
 
 pub fn get_multiplier_bps(status: EvidenceStatus) -> i64 {

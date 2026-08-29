@@ -45,10 +45,10 @@
 
   <main class="main-content">
     <div class="page-intro">
-      <div style="margin-bottom: 0.5rem;"><span class="badge badge-live">LIVE SPECIFICATIONS</span></div>
+      <div style="margin-bottom: 0.5rem;"><span class="badge badge-pending">RESEARCH & PILOT STATUS</span></div>
       <h1 class="page-heading">Protocol & Methodology</h1>
       <p class="page-subtext">
-        Disclosed standards, provenance data hierarchies, ethical ledger boundaries, reward mathematical formulas, and canonical JSON validation schemas.
+        Create evidence. Support credible climate action. ACNC helps participants document eligible reductions and assemble auditable records for program review. Estimates, receipts, and ACNC attestations are not carbon credits. Credits can exist only when an authorized registry issues serialized units following applicable methodology and independent verification.
       </p>
     </div>
 
@@ -80,39 +80,49 @@
             </thead>
             <tbody>
               <tr>
-                <td><span class="badge badge-nodata">USER_ENTERED</span></td>
-                <td>Manually supplied by the user without third-party statement</td>
-                <td><strong>0.2×</strong></td>
+                <td><span class="badge badge-nodata">LOCAL RECORD</span></td>
+                <td>User-created record stored locally or in the ACNC evidence system</td>
+                <td><strong>0.0×</strong></td>
               </tr>
               <tr>
-                <td><span class="badge badge-local">RECEIPT_BACKED</span></td>
-                <td>Supported by a statement, invoice, or attached receipt document</td>
+                <td><span class="badge badge-nodata">ESTIMATED</span></td>
+                <td>Calculated from declared inputs and a disclosed factor/model</td>
+                <td><strong>0.3×</strong></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-local">RECEIPT BACKED</span></td>
+                <td>Supported by a submitted invoice, receipt, or statement; not yet independently verified</td>
                 <td><strong>0.8×</strong></td>
               </tr>
               <tr>
                 <td><span class="badge badge-live">METERED</span></td>
-                <td>Imported from a connected smart device or utility API</td>
+                <td>Supported by an approved meter, utility, facility, or partner data source</td>
                 <td><strong>1.0×</strong></td>
               </tr>
               <tr>
                 <td><span class="badge badge-live">ATTESTED</span></td>
-                <td>Validated by an approved non-profit or employer partner</td>
+                <td>Confirmed by an authorized third party under documented rules</td>
                 <td><strong>1.0×</strong></td>
               </tr>
               <tr>
-                <td><span class="badge badge-verified">REGISTRY_VERIFIED</span></td>
-                <td>Linked to a verifiable third-party carbon retirement record</td>
+                <td><span class="badge badge-local">VALIDATED</span></td>
+                <td>Reviewed for ACNC program completeness; not a registry-issued unit</td>
                 <td><strong>1.0×</strong></td>
               </tr>
               <tr>
-                <td><span class="badge badge-nodata">ESTIMATED</span></td>
-                <td>Derived from a disclosed route or regional model</td>
-                <td><strong>0.3×</strong></td>
+                <td><span class="badge badge-pending">PENDING VVB</span></td>
+                <td>Included in a project monitoring package awaiting independent verification</td>
+                <td><strong>1.0×</strong></td>
               </tr>
               <tr>
-                <td><span class="badge badge-rejected">UNVERIFIED</span></td>
-                <td>Self-reported without documentation; cannot earn rewards</td>
-                <td><strong>0.0×</strong></td>
+                <td><span class="badge badge-verified">REGISTRY ISSUED</span></td>
+                <td>Confirmed by the applicable registry through official issued-unit records (read-only)</td>
+                <td><strong>1.0×</strong></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-verified">REGISTRY RETIRED</span></td>
+                <td>Confirmed by the applicable registry as retired and unavailable for further use (read-only)</td>
+                <td><strong>1.0×</strong></td>
               </tr>
             </tbody>
           </table>

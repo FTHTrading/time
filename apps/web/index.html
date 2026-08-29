@@ -11,6 +11,102 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/app.css" />
+  <style>
+    .video-hero {
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      min-height: 420px;
+    }
+    .video-hero video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.45;
+    }
+    .video-hero-overlay {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 2.5rem 3.5rem;
+      background: linear-gradient(180deg, rgba(5,7,10,0.55) 0%, rgba(5,7,10,0.85) 100%);
+    }
+    .video-hero h1 {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+    .video-hero .hero-sub {
+      font-size: 1.12rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+    .video-hero .hero-disclaimer {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 1.5rem;
+      line-height: 1.6;
+      max-width: 700px;
+    }
+    .infinity-strip {
+      position: relative;
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+      height: 180px;
+    }
+    .infinity-strip video {
+      position: absolute;
+      top: 50%; left: 0;
+      width: 100%;
+      transform: translateY(-50%);
+      object-fit: cover;
+      opacity: 0.55;
+    }
+    .infinity-strip-overlay {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(5,7,10,0.7) 0%, rgba(5,7,10,0.3) 50%, rgba(5,7,10,0.7) 100%);
+      text-align: center;
+      padding: 1rem;
+    }
+    .infinity-strip-overlay p {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      max-width: 700px;
+      line-height: 1.5;
+    }
+    .infinity-strip-overlay p span {
+      color: var(--status-local);
+    }
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 768px) {
+      .video-hero h1 { font-size: 2rem; }
+      .video-hero-overlay { padding: 2.5rem 1.5rem 2rem; }
+      .controls-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body data-page="overview">
 
@@ -47,33 +143,51 @@
 
   <main class="main-content">
     
-    <!-- Hero Assessment Starter -->
-    <div class="hero-card">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-        <span class="badge badge-live"><i class="fa-solid fa-circle-check"></i> LIVE PROTOCOL</span>
-        <span class="badge badge-local">FOUNDATION v4.0</span>
+    <!-- Cinematic Video Hero -->
+    <div class="video-hero">
+      <video autoplay muted loop playsinline>
+        <source src="assets/video/hero-cinematic.mp4" type="video/mp4" />
+      </video>
+      <div class="video-hero-overlay">
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+          <span class="badge badge-local">FOUNDATION v4.1</span>
+          <span class="badge badge-pending">RESEARCH & PILOT STATUS</span>
+        </div>
+
+        <h1>
+          ALL COUCH NO CAGE<br />
+          <span style="color: var(--status-local);">Human Time & Impact Protocol</span>
+        </h1>
+
+        <p class="hero-sub">
+          Create evidence. Support credible climate action. ACNC helps participants document eligible reductions and assemble auditable records for program review. Estimates, receipts, and ACNC attestations are not carbon credits. Credits can exist only when an authorized registry issues serialized units following applicable methodology and independent verification.
+        </p>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="measure.html" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-play"></i> Begin Assessment
+          </a>
+          <a href="protocol.html" class="btn btn-secondary btn-lg">
+            <i class="fa-solid fa-book-open"></i> View Methodology
+          </a>
+        </div>
+
+        <div class="hero-disclaimer">
+          Research and pilot status — not a crediting offer. This platform authorizes research, software development, partner diligence, and a controlled pilot only. Private by default • No data means no claim • Offsets require registry evidence
+        </div>
       </div>
+    </div>
 
-      <h1 class="page-heading">
-        ALL COUCH NO CAGE<br />
-        <span style="color: var(--status-local);">Human Time & Impact Protocol</span>
-      </h1>
-
-      <p class="page-subtext">
-        Measure what you use. Reduce what you can. Verify what you offset. Earn utility only from eligible, evidence-backed action.
-      </p>
-
-      <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap;">
-        <a href="measure.html" class="btn btn-primary btn-lg">
-          <i class="fa-solid fa-play"></i> Begin Assessment
-        </a>
-        <a href="protocol.html" class="btn btn-secondary btn-lg">
-          <i class="fa-solid fa-book-open"></i> View Methodology
-        </a>
-      </div>
-
-      <div style="margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">
-        Private by default • No data means no claim • Offsets require registry evidence
+    <!-- Infinity Symbol Visual Strip -->
+    <div class="infinity-strip">
+      <video autoplay muted loop playsinline>
+        <source src="assets/video/infinity-symbol.mp4" type="video/mp4" />
+      </video>
+      <div class="infinity-strip-overlay">
+        <p>
+          Measure what you use. <span>Reduce what you can.</span> Verify what you offset.
+          Earn utility only from <span>eligible, evidence-backed action.</span>
+        </p>
       </div>
     </div>
 
@@ -104,31 +218,31 @@
       <div class="panel">
         <div class="form-label">Impact Points</div>
         <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-live);" id="overviewImpactPts">0</div>
-        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Avoided emissions</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Documented reductions</div>
       </div>
 
       <div class="panel">
         <div class="form-label">Contribution Points</div>
         <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-verified);" id="overviewOffsetPts">0</div>
-        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Validated retirements</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Registry-confirmed retirements</div>
       </div>
 
       <div class="panel">
         <div class="form-label">Eligible VTIME</div>
         <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-local);" id="overviewVTime">0.00 VTIME</div>
-        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Calculated utility credit</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Closed-loop utility credit (not a carbon credit)</div>
       </div>
     </div>
 
-    <!-- Product Areas Matrix -->
+    <!-- System Modules -->
     <h2 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; margin-bottom: 1.25rem;">
       System Modules & Primary Actions
     </h2>
 
-    <div class="grid-3">
+    <div class="controls-grid">
       <div class="panel">
         <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
-          <span class="badge badge-local">LOCAL</span>
+          <span class="badge badge-local">LOCAL RECORD</span>
           <span style="color: var(--status-local);"><i class="fa-solid fa-calculator"></i></span>
         </div>
         <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">Measure</h3>
@@ -140,7 +254,7 @@
 
       <div class="panel">
         <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
-          <span class="badge badge-local">LOCAL</span>
+          <span class="badge badge-local">LOCAL RECORD</span>
           <span style="color: var(--status-live);"><i class="fa-solid fa-arrow-trend-down"></i></span>
         </div>
         <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">Reduce</h3>
@@ -157,7 +271,7 @@
         </div>
         <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">Offsets</h3>
         <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
-          Validate authoritative third-party retirement certificates (Gold Standard, Verra, Puro.earth).
+          Validate third-party registry retirement records. The relevant registry remains the authoritative source.
         </p>
         <a href="offsets.html" class="btn btn-secondary btn-sm" style="width: 100%;">Open Offsets</a>
       </div>
@@ -170,8 +284,11 @@
       <div>
         <strong>ALL COUCH NO CAGE</strong> — Human Time & Impact Protocol
       </div>
+      <div style="font-size: 0.72rem; color: var(--text-muted);">
+        Research and pilot status — not a crediting offer
+      </div>
       <div>
-        <a href="protocol.html">Methodology</a> • <a href="vault.html">Vault</a> • <a href="docs/ETHICAL_LEDGER.md">Ethical Boundary</a>
+        <a href="protocol.html">Methodology</a> • <a href="vault.html">Vault</a> • <a href="docs/ACNC_ETHICAL_BOUNDARIES_v0.1.md">Ethical Boundary</a>
       </div>
     </div>
   </footer>

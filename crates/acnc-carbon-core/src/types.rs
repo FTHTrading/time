@@ -1,4 +1,18 @@
 //! Core deterministic integer types, evidence statuses, and record models.
+//!
+//! Status vocabulary (used consistently across site, Rust engine, reports, and contracts):
+//!
+//! | Status                    | Meaning                                                                         |
+//! |---------------------------|---------------------------------------------------------------------------------|
+//! | LOCAL_RECORD              | User-created record stored locally or in the ACNC evidence system.              |
+//! | ESTIMATED                 | Calculated from declared inputs and a disclosed factor/model.                   |
+//! | RECEIPT_BACKED            | Supported by a submitted invoice, receipt, or statement; not yet independently verified. |
+//! | METERED                   | Supported by an approved meter, utility, facility, or partner data source.      |
+//! | ATTESTED                  | Confirmed by an authorized third party under documented rules.                  |
+//! | VALIDATED                 | Reviewed for ACNC program completeness; not a registry-issued unit.             |
+//! | PENDING_VVB_VERIFICATION  | Included in a project monitoring package awaiting independent verification.     |
+//! | REGISTRY_ISSUED           | Confirmed by the applicable registry through official issued-unit records.      |
+//! | REGISTRY_RETIRED          | Confirmed by the applicable registry as retired and unavailable for further use. |
 
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
@@ -24,32 +38,60 @@ pub enum CarbonError {
     InsufficientEvidence,
     #[error("Daily or category cap exceeded")]
     CapExceeded,
+    #[error("Transition not permitted: external authority required")]
+    ExternalAuthorityRequired,
 }
 
+/// Evidence and review status vocabulary.
+///
+/// IMPORTANT: `RegistryIssued` and `RegistryRetired` are READ-ONLY states.
+/// They may only be populated from a confirmed registry reference or API response.
+/// The ACNC platform cannot set these statuses through internal review.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum EvidenceStatus {
-    Unverified,
-    UserEntered,
+    /// User-created record stored locally or in the ACNC evidence system.
+    LocalRecord,
+    /// Calculated from declared inputs and a disclosed factor/model.
     Estimated,
+    /// Supported by a submitted invoice, receipt, or statement; not yet independently verified.
     ReceiptBacked,
+    /// Supported by an approved meter, utility, facility, or partner data source.
     Metered,
+    /// Confirmed by an authorized third party under documented rules.
     Attested,
-    RegistryVerified,
+    /// Reviewed for ACNC program completeness; not a registry-issued unit.
+    Validated,
+    /// Included in a project monitoring package awaiting independent verification.
+    PendingVvbVerification,
+    /// READ-ONLY. Confirmed by the applicable registry through official issued-unit records.
+    RegistryIssued,
+    /// READ-ONLY. Confirmed by the applicable registry as retired and unavailable for further use.
+    RegistryRetired,
 }
 
 impl EvidenceStatus {
     /// Returns basis points multiplier for reward/credit calculations (e.g. 8000 = 0.8x).
     pub fn evidence_multiplier_bps(&self) -> BasisPoints {
         match self {
-            EvidenceStatus::Unverified => 0,
-            EvidenceStatus::UserEntered => 2_000,
+            EvidenceStatus::LocalRecord => 0,
             EvidenceStatus::Estimated => 3_000,
             EvidenceStatus::ReceiptBacked => 8_000,
             EvidenceStatus::Metered => 10_000,
             EvidenceStatus::Attested => 10_000,
-            EvidenceStatus::RegistryVerified => 10_000,
+            EvidenceStatus::Validated => 10_000,
+            EvidenceStatus::PendingVvbVerification => 10_000,
+            EvidenceStatus::RegistryIssued => 10_000,
+            EvidenceStatus::RegistryRetired => 10_000,
         }
+    }
+
+    /// Whether this status can be set by the ACNC platform internally.
+    pub fn is_internally_settable(&self) -> bool {
+        !matches!(
+            self,
+            EvidenceStatus::RegistryIssued | EvidenceStatus::RegistryRetired
+        )
     }
 }
 
@@ -68,7 +110,10 @@ pub struct EmissionFactor {
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ActivityRecord {
     pub record_id: String,
-    pub subject_id_hash: [u8; 32],
+    /// Pseudonymous participant identifier (SHA-256 hash).
+    /// Identity data collected only where a registry, payment, anti-fraud,
+    /// or benefit-sharing requirement mandates it.
+    pub participant_id_hash: [u8; 32],
     pub category: String,
     pub quantity: i64,
     pub unit: String,
@@ -135,16 +180,31 @@ pub struct RegistryRetirementRecord {
     pub verified_by_attester: bool,
 }
 
+/// Review lifecycle status for a ReductionCandidate.
+///
+/// IMPORTANT: `RegistryIssued` is READ-ONLY — populated exclusively from
+/// a confirmed registry reference. ACNC cannot set this status through
+/// internal review or platform action.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum CandidateStatus {
     Draft,
     EvidenceComplete,
-    AwaitingIndependentValidation,
+    PendingInternalReview,
+    PendingIndependentValidation,
     Validated,
+    PendingVvbVerification,
     VerifiedForRegistrySubmission,
+    /// READ-ONLY. Set exclusively from registry confirmation.
     RegistryIssued,
     Rejected,
+}
+
+impl CandidateStatus {
+    /// Whether this status can be set by the ACNC platform.
+    pub fn is_internally_settable(&self) -> bool {
+        !matches!(self, CandidateStatus::RegistryIssued)
+    }
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
