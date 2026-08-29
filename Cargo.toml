@@ -1,0 +1,24 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/acnc-carbon-core",
+    "crates/acnc-evidence",
+    "crates/acnc-project-mrv",
+    "crates/acnc-policy",
+    "crates/acnc-registry-adapters"
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["UnyKorn LLC / FTHTrading Team"]
+license = "MIT"
+repository = "https://github.com/FTHTrading/time"
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+thiserror = "1.0"
+hex = "0.4"
+chrono = { version = "0.4", features = ["serde"] }

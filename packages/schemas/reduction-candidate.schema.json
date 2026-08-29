@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://time.unykorn.ai/schemas/reduction-candidate.schema.json",
+  "title": "ReductionCandidate",
+  "type": "object",
+  "required": [
+    "candidateId",
+    "projectId",
+    "periodStart",
+    "periodEnd",
+    "baselineGramsCo2e",
+    "observedGramsCo2e",
+    "leakageGramsCo2e",
+    "uncertaintyDiscountBps",
+    "conservativeReductionGramsCo2e",
+    "methodologyVersion",
+    "evidenceRoot",
+    "status"
+  ],
+  "properties": {
+    "candidateId": { "type": "string" },
+    "projectId": { "type": "string" },
+    "periodStart": { "type": "integer" },
+    "periodEnd": { "type": "integer" },
+    "baselineGramsCo2e": { "type": "integer", "minimum": 0 },
+    "observedGramsCo2e": { "type": "integer", "minimum": 0 },
+    "leakageGramsCo2e": { "type": "integer", "minimum": 0 },
+    "uncertaintyDiscountBps": { "type": "integer", "minimum": 0, "maximum": 10000 },
+    "conservativeReductionGramsCo2e": { "type": "integer", "minimum": 0 },
+    "methodologyVersion": { "type": "string" },
+    "evidenceRoot": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "EVIDENCE_COMPLETE",
+        "AWAITING_INDEPENDENT_VALIDATION",
+        "VALIDATED",
+        "VERIFIED_FOR_REGISTRY_SUBMISSION",
+        "REGISTRY_ISSUED",
+        "REJECTED"
+      ]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+[package]
+name = "acnc-project-mrv"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+
+[dependencies]
+acnc-carbon-core = { path = "../acnc-carbon-core" }
+acnc-evidence = { path = "../acnc-evidence" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+chrono.workspace = true

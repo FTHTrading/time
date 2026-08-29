@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://time.unykorn.ai/schemas/footprint-estimate.schema.json",
+  "title": "FootprintEstimate",
+  "type": "object",
+  "required": [
+    "estimateId",
+    "activityRecordId",
+    "grossGramsCo2e",
+    "factorId",
+    "factorVersion",
+    "confidenceScoreBps",
+    "calculatedAt",
+    "evidenceHash"
+  ],
+  "properties": {
+    "estimateId": { "type": "string" },
+    "activityRecordId": { "type": "string" },
+    "grossGramsCo2e": { "type": "integer", "minimum": 0 },
+    "factorId": { "type": "string" },
+    "factorVersion": { "type": "string" },
+    "confidenceScoreBps": { "type": "integer", "minimum": 0, "maximum": 10000 },
+    "calculatedAt": { "type": "integer" },
+    "evidenceHash": { "type": "string" }
+  }
+}
