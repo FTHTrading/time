@@ -1,0 +1,63 @@
+openapi: 3.0.3
+info:
+  title: ACNC Evidence Attestation API
+  description: Off-chain evidence verification and EIP-712 claim signing service.
+  version: 1.0.0
+servers:
+  - url: https://api.time.unykorn.ai/v1
+paths:
+  /attest/focus:
+    post:
+      summary: Attest completed focus session receipt
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FocusAttestationRequest'
+      responses:
+        '200':
+          description: Attested receipt with EIP-712 signature
+  /attest/offset:
+    post:
+      summary: Attest registry retirement certificate
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OffsetAttestationRequest'
+      responses:
+        '200':
+          description: Verified registry certificate and claim payload
+components:
+  schemas:
+    FocusAttestationRequest:
+      type: object
+      required:
+        - receiptId
+        - recipient
+        - durationMinutes
+        - evidenceHash
+      properties:
+        receiptId:
+          type: string
+        recipient:
+          type: string
+        durationMinutes:
+          type: integer
+        evidenceHash:
+          type: string
+    OffsetAttestationRequest:
+      type: object
+      required:
+        - registry
+        - serialNumber
+        - recipient
+      properties:
+        registry:
+          type: string
+        serialNumber:
+          type: string
+        recipient:
+          type: string

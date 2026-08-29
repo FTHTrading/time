@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault — ALL COUCH NO CAGE</title>
+  <meta name="description" content="Connect wallet, inspect signed claims, and export full JSON audit ledger." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body data-page="vault">
+
+  <div class="ambient-glow glow-cyan"></div>
+
+  <header class="header-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/official_logo.png" alt="Logo" class="brand-logo" />
+        <div>
+          <span class="brand-title">ALL COUCH NO CAGE</span>
+          <span class="brand-subtitle">Vault</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="measure.html">Measure</a></li>
+        <li><a href="reduce.html">Reduce</a></li>
+        <li><a href="offsets.html">Offsets</a></li>
+        <li><a href="rewards.html">Rewards</a></li>
+        <li><a href="vault.html" class="active">Vault</a></li>
+        <li><a href="relics.html">Relics</a></li>
+        <li><a href="protocol.html">Protocol</a></li>
+      </ul>
+
+      <div>
+        <button class="btn btn-primary btn-sm" id="globalWalletBtn">Connect Wallet</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-intro">
+      <div style="margin-bottom: 0.5rem;"><span class="badge badge-testnet">TESTNET RAIL (AMOY)</span></div>
+      <h1 class="page-heading">Personal Integrity Vault</h1>
+      <p class="page-subtext">
+        Connect only when you are ready to claim eligible credits. Export your full verifiable audit ledger in standard JSON format.
+      </p>
+    </div>
+
+    <!-- Wallet Connection Card (Honest Disconnected Default) -->
+    <div class="panel" style="margin-bottom: 2.5rem;">
+      <div class="grid-4" style="align-items: center;">
+        <div>
+          <div class="form-label">Connected Wallet</div>
+          <div style="font-size: 1.1rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-verified);" id="vaultWalletAddr">Not Connected</div>
+          <div style="margin-top: 0.35rem;" id="vaultWalletStatus">
+            <span class="badge badge-nodata">NO WALLET CONNECTED</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="form-label">Network Verification</div>
+          <div style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary);">Polygon Amoy (80002)</div>
+          <div style="font-size: 0.75rem; color: var(--status-local); margin-top: 0.25rem;">Non-custodial rail</div>
+        </div>
+
+        <div>
+          <div class="form-label">Eligible Balance</div>
+          <div style="font-size: 1.5rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-local);" id="vaultEligibleVTime">0.00 VTIME</div>
+        </div>
+
+        <div style="text-align: right;">
+          <button class="btn btn-primary" id="vaultConnectBtn">Connect Wallet</button>
+          <button class="btn btn-secondary" id="vaultDisconnectBtn" style="display: none;">Disconnect</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Verifiable Ledger Export -->
+    <div class="panel" style="margin-bottom: 2.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h3 style="font-size: 1.2rem; font-weight: 800;"><i class="fa-solid fa-file-export" style="color: var(--status-local);"></i> Export Verifiable Audit Ledger</h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary);">Download structured cryptographic records containing SHA-256 evidence digests.</p>
+        </div>
+        <button class="btn btn-secondary" id="vaultExportBtn">
+          <i class="fa-solid fa-download"></i> Export JSON Ledger
+        </button>
+      </div>
+    </div>
+
+    <!-- On-Chain Smart Contract Reference -->
+    <div class="panel">
+      <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 1rem;">
+        <i class="fa-solid fa-code" style="color: var(--status-local);"></i> Deployed Smart Contract Architecture
+      </h3>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Contract Name</th>
+              <th>Network</th>
+              <th>Status</th>
+              <th>Contract Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>TimeImpactLedger.sol</strong></td>
+              <td>Polygon Amoy</td>
+              <td><span class="badge badge-testnet">TESTNET</span></td>
+              <td><code>0x4E574939D460d284B5D990646D4aeaEF2D49Fa13</code></td>
+            </tr>
+            <tr>
+              <td><strong>VTIMERewardVault.sol</strong></td>
+              <td>Polygon Amoy</td>
+              <td><span class="badge badge-testnet">TESTNET</span></td>
+              <td><code>0x8aced25DC8530FDaf0f86D53a0A1E02AAfA7Ac7A</code></td>
+            </tr>
+            <tr>
+              <td><strong>OffsetRetirementReceipt.sol</strong></td>
+              <td>Polygon Amoy</td>
+              <td><span class="badge badge-testnet">TESTNET</span></td>
+              <td><code>0x7332ApostleChainProtocolAnchor</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div><strong>ALL COUCH NO CAGE</strong> — Human Time & Impact Protocol</div>
+  </footer>
+
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/receipts.js"></script>
+  <script src="assets/js/wallet.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

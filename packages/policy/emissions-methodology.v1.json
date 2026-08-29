@@ -1,0 +1,62 @@
+{
+  "methodologyVersion": "2026.1",
+  "publishedStandards": [
+    "EPA GHG Emission Factors Hub (2024)",
+    "EPA eGRID Summary Tables (2024)",
+    "IPCC Sixth Assessment Report (AR6)",
+    "ICAO Carbon Emissions Calculator",
+    "DOT Federal Transit Administration"
+  ],
+  "factors": {
+    "electricity_kwh": {
+      "factor": 0.385,
+      "unit": "kg CO2e / kWh",
+      "source": "EPA eGRID 2024 US National Average"
+    },
+    "natural_gas_therm": {
+      "factor": 2.020,
+      "unit": "kg CO2e / therm",
+      "source": "EPA GHG Emission Factors Hub"
+    },
+    "water_utility_gallon": {
+      "factor": 0.003,
+      "unit": "kg CO2e / gallon",
+      "source": "Water Research Foundation"
+    },
+    "gasoline_car_mile": {
+      "factor": 0.404,
+      "unit": "kg CO2e / mile",
+      "source": "EPA GHG Factors Hub"
+    },
+    "diesel_car_mile": {
+      "factor": 0.450,
+      "unit": "kg CO2e / mile",
+      "source": "EPA GHG Factors Hub"
+    },
+    "electric_vehicle_mile": {
+      "factor": 0.110,
+      "unit": "kg CO2e / mile",
+      "source": "DOE Alternative Fuels Data Center"
+    },
+    "transit_bus_mile": {
+      "factor": 0.140,
+      "unit": "kg CO2e / passenger-mile",
+      "source": "DOT FTA National Transit Database"
+    },
+    "flight_domestic_economy_mile": {
+      "factor": 0.210,
+      "unit": "kg CO2e / passenger-mile",
+      "source": "ICAO Carbon Calculator"
+    },
+    "food_waste_landfill_kg": {
+      "factor": 2.500,
+      "unit": "kg CO2e / kg",
+      "source": "EPA WARM Model"
+    },
+    "cloud_gpu_hour": {
+      "factor": 0.180,
+      "unit": "kg CO2e / hour",
+      "source": "Provider Sustainability Reports"
+    }
+  }
+}

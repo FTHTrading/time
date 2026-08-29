@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protocol — ALL COUCH NO CAGE</title>
+  <meta name="description" content="Methodology, policy, schemas, security, and contract specifications." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body data-page="protocol">
+
+  <div class="ambient-glow glow-cyan"></div>
+
+  <header class="header-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/official_logo.png" alt="Logo" class="brand-logo" />
+        <div>
+          <span class="brand-title">ALL COUCH NO CAGE</span>
+          <span class="brand-subtitle">Protocol</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="measure.html">Measure</a></li>
+        <li><a href="reduce.html">Reduce</a></li>
+        <li><a href="offsets.html">Offsets</a></li>
+        <li><a href="rewards.html">Rewards</a></li>
+        <li><a href="vault.html">Vault</a></li>
+        <li><a href="relics.html">Relics</a></li>
+        <li><a href="protocol.html" class="active">Protocol</a></li>
+      </ul>
+
+      <div>
+        <button class="btn btn-primary btn-sm" id="globalWalletBtn">Connect Wallet</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-intro">
+      <div style="margin-bottom: 0.5rem;"><span class="badge badge-live">LIVE SPECIFICATIONS</span></div>
+      <h1 class="page-heading">Protocol & Methodology</h1>
+      <p class="page-subtext">
+        Disclosed standards, provenance data hierarchies, ethical ledger boundaries, reward mathematical formulas, and canonical JSON validation schemas.
+      </p>
+    </div>
+
+    <!-- Tabs Bar -->
+    <div class="tabs-bar">
+      <button class="tab-link active" data-target="tab-provenance">Data Provenance</button>
+      <button class="tab-link" data-target="tab-factors">Emission Standards</button>
+      <button class="tab-link" data-target="tab-ethical">Ethical Ledger</button>
+      <button class="tab-link" data-target="tab-policy">Reward Formula</button>
+      <button class="tab-link" data-target="tab-schemas">JSON Schemas</button>
+    </div>
+
+    <!-- Tab 1: Provenance -->
+    <div id="tab-provenance" class="tab-content active">
+      <div class="panel">
+        <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Data Trust Hierarchy</h3>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Every recorded metric in the platform must display what it measures and its trust level.
+        </p>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Provenance Status</th>
+                <th>Meaning</th>
+                <th>Multiplier</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-nodata">USER_ENTERED</span></td>
+                <td>Manually supplied by the user without third-party statement</td>
+                <td><strong>0.2×</strong></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-local">RECEIPT_BACKED</span></td>
+                <td>Supported by a statement, invoice, or attached receipt document</td>
+                <td><strong>0.8×</strong></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-live">METERED</span></td>
+                <td>Imported from a connected smart device or utility API</td>
+                <td><strong>1.0×</strong></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-live">ATTESTED</span></td>
+                <td>Validated by an approved non-profit or employer partner</td>
+                <td><strong>1.0×</strong></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-verified">REGISTRY_VERIFIED</span></td>
+                <td>Linked to a verifiable third-party carbon retirement record</td>
+                <td><strong>1.0×</strong></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-nodata">ESTIMATED</span></td>
+                <td>Derived from a disclosed route or regional model</td>
+                <td><strong>0.3×</strong></td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-rejected">UNVERIFIED</span></td>
+                <td>Self-reported without documentation; cannot earn rewards</td>
+                <td><strong>0.0×</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Emission Standards -->
+    <div id="tab-factors" class="tab-content">
+      <div class="panel">
+        <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Disclosed Emissions Factors (v2026.1)</h3>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Standardized calculation constants published by the EPA, IPCC, and international bodies.
+        </p>
+
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Factor</th>
+                <th>Unit</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Home Electricity</td>
+                <td><strong>0.385</strong></td>
+                <td>kg CO2e / kWh</td>
+                <td>EPA eGRID 2024</td>
+              </tr>
+              <tr>
+                <td>Natural Gas</td>
+                <td><strong>2.020</strong></td>
+                <td>kg CO2e / therm</td>
+                <td>EPA GHG Factors Hub</td>
+              </tr>
+              <tr>
+                <td>Municipal Water</td>
+                <td><strong>0.003</strong></td>
+                <td>kg CO2e / gallon</td>
+                <td>Water Research Foundation</td>
+              </tr>
+              <tr>
+                <td>Gasoline Vehicle</td>
+                <td><strong>0.404</strong></td>
+                <td>kg CO2e / mile</td>
+                <td>EPA GHG Factors Hub</td>
+              </tr>
+              <tr>
+                <td>Public Transit</td>
+                <td><strong>0.140</strong></td>
+                <td>kg CO2e / passenger-mile</td>
+                <td>DOT FTA NTD</td>
+              </tr>
+              <tr>
+                <td>Food Waste Landfill</td>
+                <td><strong>2.500</strong></td>
+                <td>kg CO2e / kg</td>
+                <td>EPA WARM Model</td>
+              </tr>
+              <tr>
+                <td>Cloud GPU Compute</td>
+                <td><strong>0.180</strong></td>
+                <td>kg CO2e / hour</td>
+                <td>Provider Disclosures</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Ethical Ledger -->
+    <div id="tab-ethical" class="tab-content">
+      <div class="panel">
+        <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Non-Biological Ethical Ledger</h3>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Human existence is treated as sovereign positive value, never an ecological debt.
+        </p>
+
+        <div class="grid-2">
+          <div class="panel panel-elevated" style="border-left: 3px solid var(--status-live);">
+            <h4 style="color: var(--status-live); margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-check"></i> What We Measure & Reward</h4>
+            <ul style="padding-left: 1.25rem; font-size: 0.84rem; color: var(--text-secondary); line-height: 1.8;">
+              <li>Focused deep work and skill acquisition</li>
+              <li>Caregiving, mentorship, and teaching</li>
+              <li>Community volunteer service</li>
+              <li>Physical hardware repair and reuse</li>
+              <li>Metered energy and transit reductions</li>
+            </ul>
+          </div>
+
+          <div class="panel panel-elevated" style="border-left: 3px solid var(--status-rejected);">
+            <h4 style="color: var(--status-rejected); margin-bottom: 0.5rem;"><i class="fa-solid fa-ban"></i> What We Never Charge</h4>
+            <ul style="padding-left: 1.25rem; font-size: 0.84rem; color: var(--text-secondary); line-height: 1.8;">
+              <li>Respiration or oxygen intake</li>
+              <li>Basal metabolism or caloric needs</li>
+              <li>Bodily existence and sleep</li>
+              <li>Basic water and food needs</li>
+              <li>Disability or medical device requirements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Reward Formula -->
+    <div id="tab-policy" class="tab-content">
+      <div class="panel">
+        <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Reward Issuance Equation</h3>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Utility credits are calculated deterministically under published policy caps.
+        </p>
+
+        <div class="panel panel-elevated" style="text-align: center; font-family: var(--font-mono); font-size: 0.95rem; color: var(--status-verified); margin-bottom: 1.25rem;">
+          VTIME Issued = min( base_reward × evidence_multiplier × policy_multiplier, category_cap, daily_cap )
+        </div>
+
+        <ul style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.8;">
+          <li>Daily Focus Cap: 50 VTIME</li>
+          <li>Daily Impact Reduction Cap: 50 VTIME</li>
+          <li>Daily Contribution Cap: 50 VTIME</li>
+          <li>Daily Account Maximum: 200 VTIME</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Tab 5: JSON Schemas -->
+    <div id="tab-schemas" class="tab-content">
+      <div class="panel">
+        <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Canonical Data Schemas</h3>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Published JSON schema formats enforcing evidence digests and provenance data.
+        </p>
+
+        <pre style="background: #000; border: 1px solid var(--border-subtle); padding: 1rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.78rem; color: var(--status-local); overflow-x: auto;">
+{
+  "recordId": "rec_8ace92e4",
+  "category": "home_electricity",
+  "quantity": 320,
+  "unit": "kWh",
+  "periodStart": "2026-08-01",
+  "periodEnd": "2026-08-31",
+  "dataStatus": "RECEIPT_BACKED",
+  "evidenceHash": "sha256:7f83b1657ff1fc53b92dc18148a1d65dfc2d4b1fa3d677284addd200126d9069",
+  "factorSource": "EPA eGRID 2024",
+  "factorVersion": "2026.1",
+  "calculationVersion": "impact-v1",
+  "co2eKgEstimate": 123.20,
+  "rewardStatus": "PENDING"
+}</pre>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div><strong>ALL COUCH NO CAGE</strong> — Human Time & Impact Protocol</div>
+  </footer>
+
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/receipts.js"></script>
+  <script src="assets/js/wallet.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

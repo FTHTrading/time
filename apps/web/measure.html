@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Measure — ALL COUCH NO CAGE</title>
+  <meta name="description" content="Capture consumption, use, waste, and positive-action data with disclosed regional emission factors." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body data-page="measure">
+
+  <div class="ambient-glow glow-cyan"></div>
+
+  <!-- Navigation -->
+  <header class="header-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/official_logo.png" alt="Logo" class="brand-logo" />
+        <div>
+          <span class="brand-title">ALL COUCH NO CAGE</span>
+          <span class="brand-subtitle">Measure</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="measure.html" class="active">Measure</a></li>
+        <li><a href="reduce.html">Reduce</a></li>
+        <li><a href="offsets.html">Offsets</a></li>
+        <li><a href="rewards.html">Rewards</a></li>
+        <li><a href="vault.html">Vault</a></li>
+        <li><a href="relics.html">Relics</a></li>
+        <li><a href="protocol.html">Protocol</a></li>
+      </ul>
+
+      <div>
+        <button class="btn btn-primary btn-sm" id="globalWalletBtn">Connect Wallet</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-intro">
+      <div style="margin-bottom: 0.5rem;"><span class="badge badge-local">LOCAL ESTIMATOR</span></div>
+      <h1 class="page-heading">Measure Consumption & Use</h1>
+      <p class="page-subtext">
+        Enter verifiable usage data from electricity statements, transit passes, or compute logs. Calculations strictly apply disclosed factors (EPA eGRID / GHG Hub 2026.1).
+      </p>
+    </div>
+
+    <!-- Measure Input Form Panel -->
+    <div class="grid-2" style="margin-bottom: 2.5rem;">
+      <div class="panel">
+        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 1rem;">
+          <i class="fa-solid fa-plus-circle" style="color: var(--status-local);"></i> Add Supported Record
+        </h3>
+
+        <div class="form-group">
+          <label class="form-label">Activity / Resource Domain</label>
+          <select id="measureDomainSelect" class="form-control">
+            <option value="electricity_kwh" selected>Home Electricity (kWh) — 0.385 kg/kWh</option>
+            <option value="gasoline_car_mile">Gasoline Car Travel (Miles) — 0.404 kg/mi</option>
+            <option value="transit_bus_mile">Public Transit Bus/Rail (Miles) — 0.140 kg/mi</option>
+            <option value="food_waste_kg">Food Waste to Landfill (kg) — 2.500 kg/kg</option>
+            <option value="cloud_gpu_hour">Cloud GPU Compute (Hours) — 0.180 kg/hr</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Quantity</label>
+          <input type="number" id="measureQtyInput" class="form-control" value="320" min="0.1" step="any" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Evidence Provenance Status</label>
+          <select id="measureProofSelect" class="form-control">
+            <option value="RECEIPT_BACKED" selected>RECEIPT_BACKED (0.8× Multiplier)</option>
+            <option value="USER_ENTERED">USER_ENTERED (0.2× Multiplier)</option>
+            <option value="METERED">METERED (1.0× Multiplier)</option>
+            <option value="ESTIMATED">ESTIMATED (0.3× Multiplier)</option>
+          </select>
+        </div>
+
+        <div class="panel panel-elevated" style="margin-bottom: 1.25rem; padding: 1rem;">
+          <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.85rem;">
+            <span style="color: var(--text-muted);">Estimated Footprint:</span>
+            <strong style="color: var(--status-local);" id="measureCalculatedCo2">123.20 kg CO2e</strong>
+          </div>
+        </div>
+
+        <button class="btn btn-primary" id="measureAddBtn" style="width: 100%;">
+          <i class="fa-solid fa-floppy-disk"></i> Save Record Locally
+        </button>
+      </div>
+
+      <!-- Provenance Hierarchy Legend -->
+      <div class="panel">
+        <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.75rem;">
+          <i class="fa-solid fa-layer-group" style="color: var(--status-verified);"></i> Provenance Hierarchy
+        </h3>
+        <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">
+          Every recorded metric in the platform must display what it measures and its trust level.
+        </p>
+
+        <ul style="list-style: none; font-size: 0.82rem; line-height: 1.8;">
+          <li><span class="badge badge-local">RECEIPT BACKED</span> Statement or bill attached (0.8×)</li>
+          <li><span class="badge badge-live">METERED</span> Smart device or utility import (1.0×)</li>
+          <li><span class="badge badge-nodata">USER ENTERED</span> Self-reported manual entry (0.2×)</li>
+          <li><span class="badge badge-nodata">ESTIMATED</span> Modeled from route / average (0.3×)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Activity Ledger Table -->
+    <div class="panel">
+      <h3 style="font-size: 1.2rem; font-weight: 800; margin-bottom: 1rem;">
+        <i class="fa-solid fa-table-list"></i> Recorded Consumption Ledger
+      </h3>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Resource Domain</th>
+              <th>Quantity</th>
+              <th>CO2e Footprint</th>
+              <th>Provenance Status</th>
+              <th>SHA-256 Hash</th>
+            </tr>
+          </thead>
+          <tbody id="measureTableBody"></tbody>
+        </table>
+      </div>
+
+      <div id="measureEmptyNotice" style="text-align: center; padding: 2.5rem; color: var(--text-muted); font-family: var(--font-mono); font-size: 0.85rem;">
+        NO ACTIVITY RECORDED YET<br />
+        <span style="font-size: 0.75rem;">Add your first consumption record above.</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div><strong>ALL COUCH NO CAGE</strong> — Human Time & Impact Protocol</div>
+  </footer>
+
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/receipts.js"></script>
+  <script src="assets/js/wallet.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

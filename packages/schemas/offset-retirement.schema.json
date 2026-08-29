@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://time.unykorn.ai/schemas/offset-retirement.schema.json",
+  "title": "OffsetRetirement",
+  "type": "object",
+  "required": [
+    "recordId",
+    "registry",
+    "serialNumber",
+    "projectId",
+    "vintage",
+    "tonnesCo2eRetired",
+    "retirementDate",
+    "evidenceUri",
+    "evidenceHash",
+    "validationStatus"
+  ],
+  "properties": {
+    "recordId": { "type": "string" },
+    "registry": { "type": "string" },
+    "serialNumber": { "type": "string" },
+    "projectId": { "type": "string" },
+    "vintage": { "type": "integer" },
+    "tonnesCo2eRetired": { "type": "number", "minimum": 0 },
+    "retirementDate": { "type": "string", "format": "date" },
+    "evidenceUri": { "type": "string", "format": "uri" },
+    "evidenceHash": { "type": "string" },
+    "validationStatus": {
+      "type": "string",
+      "enum": ["REGISTRY_VERIFIED", "PENDING_REVIEW", "REJECTED"]
+    }
+  }
+}

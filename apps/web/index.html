@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview — ALL COUCH NO CAGE</title>
+  <meta name="description" content="Evidence-first human time, resource-use, reduction, and verified-offset ledger. Private by default." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body data-page="overview">
+
+  <div class="ambient-glow glow-cyan"></div>
+  <div class="ambient-glow glow-gold"></div>
+
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/official_logo.png" alt="Logo" class="brand-logo" />
+        <div>
+          <span class="brand-title">ALL COUCH NO CAGE</span>
+          <span class="brand-subtitle">Human Time & Impact Protocol</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="active">Overview</a></li>
+        <li><a href="measure.html">Measure</a></li>
+        <li><a href="reduce.html">Reduce</a></li>
+        <li><a href="offsets.html">Offsets</a></li>
+        <li><a href="rewards.html">Rewards</a></li>
+        <li><a href="vault.html">Vault</a></li>
+        <li><a href="relics.html">Relics</a></li>
+        <li><a href="protocol.html">Protocol</a></li>
+      </ul>
+
+      <div>
+        <button class="btn btn-primary btn-sm" id="globalWalletBtn">Connect Wallet</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    
+    <!-- Hero Assessment Starter -->
+    <div class="hero-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <span class="badge badge-live"><i class="fa-solid fa-circle-check"></i> LIVE PROTOCOL</span>
+        <span class="badge badge-local">FOUNDATION v4.0</span>
+      </div>
+
+      <h1 class="page-heading">
+        ALL COUCH NO CAGE<br />
+        <span style="color: var(--status-local);">Human Time & Impact Protocol</span>
+      </h1>
+
+      <p class="page-subtext">
+        Measure what you use. Reduce what you can. Verify what you offset. Earn utility only from eligible, evidence-backed action.
+      </p>
+
+      <div style="display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap;">
+        <a href="measure.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-play"></i> Begin Assessment
+        </a>
+        <a href="protocol.html" class="btn btn-secondary btn-lg">
+          <i class="fa-solid fa-book-open"></i> View Methodology
+        </a>
+      </div>
+
+      <div style="margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">
+        Private by default • No data means no claim • Offsets require registry evidence
+      </div>
+    </div>
+
+    <!-- Honest Default Empty State Banner -->
+    <div id="overviewEmptyBanner" class="panel" style="text-align: center; padding: 3rem 1.5rem; margin-bottom: 2.5rem;">
+      <div style="font-size: 2rem; color: var(--status-nodata); margin-bottom: 0.75rem;">
+        <i class="fa-solid fa-clipboard-list"></i>
+      </div>
+      <h3 style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.4rem;">
+        NO ACTIVITY RECORDED YET
+      </h3>
+      <p style="color: var(--text-secondary); font-size: 0.88rem; max-width: 500px; margin: 0 auto 1.25rem; line-height: 1.6;">
+        No data is shown until you create or connect it. Start by logging your energy consumption or recording a verified reduction.
+      </p>
+      <a href="measure.html" class="btn btn-primary btn-sm">
+        <i class="fa-solid fa-plus"></i> Add First Record
+      </a>
+    </div>
+
+    <!-- Summary Grid (Appears only after records exist) -->
+    <div id="overviewSummaryGrid" class="grid-4" style="display: none; margin-bottom: 2.5rem;">
+      <div class="panel">
+        <div class="form-label">Focus Points</div>
+        <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-local);" id="overviewFocusPts">0</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Deep work & learning</div>
+      </div>
+
+      <div class="panel">
+        <div class="form-label">Impact Points</div>
+        <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-live);" id="overviewImpactPts">0</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Avoided emissions</div>
+      </div>
+
+      <div class="panel">
+        <div class="form-label">Contribution Points</div>
+        <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-verified);" id="overviewOffsetPts">0</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Validated retirements</div>
+      </div>
+
+      <div class="panel">
+        <div class="form-label">Eligible VTIME</div>
+        <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-local);" id="overviewVTime">0.00 VTIME</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Calculated utility credit</div>
+      </div>
+    </div>
+
+    <!-- Product Areas Matrix -->
+    <h2 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; margin-bottom: 1.25rem;">
+      System Modules & Primary Actions
+    </h2>
+
+    <div class="grid-3">
+      <div class="panel">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+          <span class="badge badge-local">LOCAL</span>
+          <span style="color: var(--status-local);"><i class="fa-solid fa-calculator"></i></span>
+        </div>
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">Measure</h3>
+        <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Capture consumption, use, waste, and positive-action data with disclosed regional emission factors.
+        </p>
+        <a href="measure.html" class="btn btn-secondary btn-sm" style="width: 100%;">Open Measure</a>
+      </div>
+
+      <div class="panel">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+          <span class="badge badge-local">LOCAL</span>
+          <span style="color: var(--status-live);"><i class="fa-solid fa-arrow-trend-down"></i></span>
+        </div>
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">Reduce</h3>
+        <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Compare against a documented baseline and log verified reduction evidence.
+        </p>
+        <a href="reduce.html" class="btn btn-secondary btn-sm" style="width: 100%;">Open Reduce</a>
+      </div>
+
+      <div class="panel">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+          <span class="badge badge-pending">PENDING</span>
+          <span style="color: var(--status-verified);"><i class="fa-solid fa-certificate"></i></span>
+        </div>
+        <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">Offsets</h3>
+        <p style="font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          Validate authoritative third-party retirement certificates (Gold Standard, Verra, Puro.earth).
+        </p>
+        <a href="offsets.html" class="btn btn-secondary btn-sm" style="width: 100%;">Open Offsets</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div style="max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+      <div>
+        <strong>ALL COUCH NO CAGE</strong> — Human Time & Impact Protocol
+      </div>
+      <div>
+        <a href="protocol.html">Methodology</a> • <a href="vault.html">Vault</a> • <a href="docs/ETHICAL_LEDGER.md">Ethical Boundary</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/receipts.js"></script>
+  <script src="assets/js/wallet.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

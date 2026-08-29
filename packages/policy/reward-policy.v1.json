@@ -1,0 +1,27 @@
+{
+  "policyVersion": "policy-2026.1",
+  "effectiveDate": "2026-08-01",
+  "caps": {
+    "focusDailyCapVTime": 50,
+    "impactDailyCapVTime": 50,
+    "contributionDailyCapVTime": 50,
+    "offsetDailyCapVTime": 100,
+    "globalDailyCapVTime": 200
+  },
+  "rates": {
+    "focusSprint50MinPoints": 12,
+    "avoidedKgCo2ePoints": 2.5,
+    "serviceHourPoints": 25,
+    "offsetTonnePoints": 100,
+    "pointsToVTimeRatio": 0.10
+  },
+  "evidenceMultipliers": {
+    "UNVERIFIED": 0.0,
+    "USER_ENTERED": 0.2,
+    "ESTIMATED": 0.3,
+    "RECEIPT_BACKED": 0.8,
+    "METERED": 1.0,
+    "ATTESTED": 1.0,
+    "REGISTRY_VERIFIED": 1.0
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://time.unykorn.ai/schemas/reward-receipt.schema.json",
+  "title": "RewardReceipt",
+  "type": "object",
+  "required": [
+    "receiptId",
+    "activityType",
+    "pointsEarned",
+    "vtimeCalculated",
+    "evidenceMultiplier",
+    "evidenceHash",
+    "status",
+    "timestamp"
+  ],
+  "properties": {
+    "receiptId": { "type": "string" },
+    "activityType": { "type": "string" },
+    "pointsEarned": { "type": "integer", "minimum": 0 },
+    "vtimeCalculated": { "type": "number", "minimum": 0 },
+    "evidenceMultiplier": { "type": "number", "minimum": 0, "maximum": 1.0 },
+    "evidenceHash": { "type": "string" },
+    "status": { "type": "string", "enum": ["LOCAL", "SIGNED", "SETTLED"] },
+    "timestamp": { "type": "string", "format": "date-time" }
+  }
+}

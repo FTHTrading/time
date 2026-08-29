@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://time.unykorn.ai/schemas/impact-record.schema.json",
+  "title": "ImpactRecord",
+  "type": "object",
+  "required": [
+    "recordId",
+    "category",
+    "quantity",
+    "unit",
+    "periodStart",
+    "periodEnd",
+    "dataStatus",
+    "evidenceHash",
+    "factorSource",
+    "factorVersion",
+    "co2eKgEstimate",
+    "rewardStatus"
+  ],
+  "properties": {
+    "recordId": { "type": "string" },
+    "category": { "type": "string" },
+    "quantity": { "type": "number", "minimum": 0 },
+    "unit": { "type": "string" },
+    "periodStart": { "type": "string", "format": "date" },
+    "periodEnd": { "type": "string", "format": "date" },
+    "dataStatus": {
+      "type": "string",
+      "enum": [
+        "USER_ENTERED",
+        "RECEIPT_BACKED",
+        "METERED",
+        "ATTESTED",
+        "REGISTRY_VERIFIED",
+        "ESTIMATED",
+        "UNVERIFIED"
+      ]
+    },
+    "evidenceHash": { "type": "string", "pattern": "^sha256:[a-f0-9]{64}$" },
+    "factorSource": { "type": "string" },
+    "factorVersion": { "type": "string" },
+    "calculationVersion": { "type": "string" },
+    "co2eKgEstimate": { "type": "number", "minimum": 0 },
+    "rewardStatus": {
+      "type": "string",
+      "enum": ["PENDING", "APPROVED", "CLAIMED", "REJECTED"]
+    }
+  }
+}

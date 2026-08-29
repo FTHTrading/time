@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rewards — ALL COUCH NO CAGE</title>
+  <meta name="description" content="Review earned provisional and verified utility eligibility." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/app.css" />
+</head>
+<body data-page="rewards">
+
+  <div class="ambient-glow glow-cyan"></div>
+
+  <header class="header-nav">
+    <div class="nav-inner">
+      <a href="index.html" class="brand-link">
+        <img src="assets/images/official_logo.png" alt="Logo" class="brand-logo" />
+        <div>
+          <span class="brand-title">ALL COUCH NO CAGE</span>
+          <span class="brand-subtitle">Rewards</span>
+        </div>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="measure.html">Measure</a></li>
+        <li><a href="reduce.html">Reduce</a></li>
+        <li><a href="offsets.html">Offsets</a></li>
+        <li><a href="rewards.html" class="active">Rewards</a></li>
+        <li><a href="vault.html">Vault</a></li>
+        <li><a href="relics.html">Relics</a></li>
+        <li><a href="protocol.html">Protocol</a></li>
+      </ul>
+
+      <div>
+        <button class="btn btn-primary btn-sm" id="globalWalletBtn">Connect Wallet</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <div class="page-intro">
+      <div style="margin-bottom: 0.5rem;"><span class="badge badge-local">REWARD LEDGER — LOCAL</span></div>
+      <h1 class="page-heading">Review Eligible Utility Credits</h1>
+      <p class="page-subtext">
+        Track your earned Focus Points, Impact Points, and calculate provisional VTIME utility credit eligibility under published rules.
+      </p>
+    </div>
+
+    <!-- Verified Stats Grid (Strict 0 Zero Default) -->
+    <div class="grid-4" style="margin-bottom: 2.5rem;">
+      <div class="panel">
+        <div class="form-label">Today's Verified Points</div>
+        <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-verified);" id="rewardsTodayPts">0</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Earned today</div>
+      </div>
+
+      <div class="panel">
+        <div class="form-label">Total Verified Points</div>
+        <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--text-primary);" id="rewardsTotalPts">0</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Focus + Impact + Contribution</div>
+      </div>
+
+      <div class="panel">
+        <div class="form-label">Eligible VTIME Balance</div>
+        <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-local);" id="rewardsVTime">0.00 VTIME</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Available for utility unlocks</div>
+      </div>
+
+      <div class="panel">
+        <div class="form-label">Focus Consistency</div>
+        <div style="font-size: 1.8rem; font-weight: 800; font-family: var(--font-mono); color: var(--status-verified);" id="rewardsStreak">Not started</div>
+        <div style="font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">Daily sprint record</div>
+      </div>
+    </div>
+
+    <!-- Utility Unlocks Catalog -->
+    <div style="margin-bottom: 2.5rem;">
+      <h2 style="font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; margin-bottom: 1.25rem;">
+        Closed-Loop Utility Catalog
+      </h2>
+
+      <div class="grid-3">
+        <div class="panel" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span class="badge badge-local">LOCAL</span>
+              <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--status-local); font-weight: 800;">1.0 VTIME</span>
+            </div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">Deep Cognitive Architecture</h3>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.5;">
+              Structured protocols for eliminating context switching during 90-minute technical synthesis blocks.
+            </p>
+          </div>
+          <button class="btn btn-secondary btn-sm" style="width: 100%;">Unlock Guide</button>
+        </div>
+
+        <div class="panel" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span class="badge badge-pending">PENDING</span>
+              <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--status-local); font-weight: 800;">2.0 VTIME</span>
+            </div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">528 Hz Binaural Audio Pack</h3>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.5;">
+              Harmonic soundscapes designed to induce alpha brainwave flow during deep focus sessions.
+            </p>
+          </div>
+          <button class="btn btn-secondary btn-sm" style="width: 100%; opacity: 0.5;" disabled>Pending License</button>
+        </div>
+
+        <div class="panel" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span class="badge badge-demo">DEMO</span>
+              <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--status-verified); font-weight: 800;">10.0 VTIME</span>
+            </div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; margin-bottom: 0.35rem;">Sovereign Relic Forge</h3>
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.5;">
+              Transform genuine milestone completions into an immutable visual receipt with Salvador Dali art.
+            </p>
+          </div>
+          <a href="relics.html" class="btn btn-gold btn-sm" style="width: 100%;">View Relics</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Closed-Loop Disclosure Notice -->
+    <div class="panel" style="border-left: 3px solid var(--status-verified);">
+      <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+        <strong style="color: var(--text-primary); font-family: var(--font-mono);">VTIME Utility Credit Definition:</strong> 
+        Earned only under published rules from eligible, evidence-backed activity. <strong>Not cash. Not an offset. Not transferable unless explicitly enabled under a future compliant program.</strong>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div><strong>ALL COUCH NO CAGE</strong> — Human Time & Impact Protocol</div>
+  </footer>
+
+  <script src="assets/js/state.js"></script>
+  <script src="assets/js/receipts.js"></script>
+  <script src="assets/js/wallet.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

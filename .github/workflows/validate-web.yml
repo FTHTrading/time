@@ -1,0 +1,24 @@
+name: Validate Web Assets & Schemas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate JSON Schemas
+        run: |
+          python3 -c "
+          import json, glob
+          for f in glob.glob('packages/schemas/*.json') + glob.glob('packages/policy/*.json'):
+              with open(f) as fp:
+                  json.load(fp)
+                  print(f'Valid JSON: {f}')
+          "
